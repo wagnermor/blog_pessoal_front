@@ -1,12 +1,40 @@
-.img_note {
-  width: 350px;
+:root {
+  --white: #FFF;
+  --dodDark: #005596;
+  --dodLight: dodgerblue;
+ }
+
+.boxMain {
+  background-color: var(--dodDark) !important;
 }
 
-.homeMain {
-  max-width: 100vw;
+.title_home {
+  color: white !important;
+  font-weight: bold !important;
 }
 
-.filha {
-  margin: 0 auto;
-  width: 80vw;
+.btn_ver_postagem {
+  border-color: var(--white) !important;
+  background-color: var(--dodLight) !important;
+  color: var(--white) !important;
+}
+.btn_ver_postagem:hover {
+  background-color: var(--dodDark) !important;
+}
+
+@media screen and (max-width:600px) {
+  img {
+    display: none;
+  }
+}
+@media screen and (max-width:440px) {
+  .boxMain {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+  }
+  .css-l44j74 {
+    padding: 0 !important;
+  }
 }
