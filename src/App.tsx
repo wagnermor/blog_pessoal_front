@@ -1,9 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { ThemeProvider, Button, styled } from '@mui/material';
 
 import './App.css';
 
-import { LightTheme } from './themes';
 import Navbar from './components/statics/navbar/Navbar';
 import Footer from './components/statics/footer/Footer';
 import Home from './pages/home/Home';
