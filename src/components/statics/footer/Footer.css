@@ -1,0 +1,51 @@
+/* Roboto: 400, 400 italic, 700, 700 italic, 900, 900 italic*/
+:root {
+  --white: #FFF;
+  --dodDark: #005596;
+  --dodLight: dodgerblue;
+ }
+
+ .box{
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: .5rem 0 0;
+  background-color: var(--dodLight) !important;
+  width: 100% !important;
+
+ }
+ .top_box {
+  margin: 0 auto;
+  width: 80vw !important;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+ }
+ .p_box, .p_box>a {
+  color: var(--white);
+  font-size: .8rem !important;
+ }
+ .link_ {
+  color: var(--white);
+  padding: 0;
+  margin: 0;
+ }
+ a:hover>span {
+  border-bottom: 1px solid var(--white);
+ }
+ .link:hover {
+  scale: 1.2 !important;
+ }
+ .linkedin {
+  font-size: 1.8rem !important;
+  line-height: .5;
+ }
+ .botton_box {
+  margin-top: .5rem;
+  padding: .5rem 0 .5rem;
+  background-color: var(--dodDark);
+  width: 100%;
+ }

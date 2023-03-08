@@ -1,59 +1,111 @@
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-function Navbar() {
+import './Navbar.css';
+
+export default function Navbar() {
   return (
-    <>
-      <AppBar position="static">
-        <Toolbar variant="dense">
-          <Box style={{ cursor:"pointer" }}>
-            <Typography variant="h5" color="inherit">
-              Blog Pessoal
+    <AppBar className='appBar' position='static'>
+      <Toolbar className='toolBar' variant='dense'>
+        {/* <div>blabla</div> */}
+        <Box className='logoBox'>
+          <Link className='logoLink links' to='/home'>
+            <Typography className='p_logo'>
+              Blog
             </Typography>
-          </Box>
-          
-          <Box display="flex" justifyContent="start">
-            <Box mx={1} style={{cursor:"pointer"}}>
-              <Typography variant="h6" color="inherit">
-                home
-              </Typography>
-            </Box>
-          </Box>
-          
-          <Box display="flex" justifyContent="start">
-            <Box mx={1} style={{cursor:"pointer"}}>
-              <Typography variant="h6" color="inherit">
-                postagens
-              </Typography>
-            </Box>
-          </Box>
-          <Box display="flex" justifyContent="start">
-            <Box mx={1} style={{cursor:"pointer"}}>
-              <Typography variant="h6" color="inherit">
-                temas
-              </Typography>
-            </Box>
-          </Box>
-          <Box display="flex" justifyContent="start">
-            <Box mx={1} style={{cursor:"pointer"}}>
-              <Typography variant="h6" color="inherit">
-                cadastrar tema
-              </Typography>
-            </Box>
-          </Box>
-          <Box display="flex" justifyContent="start">
-            <Box mx={1} style={{cursor:"pointer"}}>
-              <Typography variant="h6" color="inherit">
-                logout
-              </Typography>
-            </Box>
-          </Box>
+            <Typography className='p_logo'>
+              Wagneriano
+            </Typography>
+            </Link>
+        </Box>
 
-        </Toolbar>
-      </AppBar>
-    </>
+        <Box className='menuBox'>
+          <Box className="menuOne">
+            <Link className="menuLinks links" to='/home'>
+              <Box className="menuItem">
+                <Typography className="p_menu">
+                  Início
+                </Typography>
+              </Box>
+            </Link>
+            <Link className="menuLinks links" to='/home'>
+              <Box className="menuItem">
+                <Typography className="p_menu">
+                  Postagens
+                </Typography>
+              </Box>
+            </Link>
+            <Link className="menuLinks links" to='/home'>
+              <Box className="menuItem">
+                <Typography className="p_menu">
+                  Temas
+                </Typography>
+              </Box>
+            </Link>
+            <Link className="menuLinks links" to='/home'>
+              <Box className="menuItem">
+                <Typography className="p_menu">
+                  Cadastrar tema
+                </Typography>
+              </Box>
+            </Link>
+          </Box>
+          <Link className="menuLinks links" to='/home'>
+            <Box className="menuItem">
+              <Typography className="p_menu">
+                Sair
+              </Typography>
+            </Box>
+          </Link>
+            
+          {/* </Box> */}
+        </Box>
+      </Toolbar>
+    </AppBar>
   )
 }
-
-export default Navbar
+    /*<AppBar className='nav' position="static">
+      <Toolbar>
+      <div className='tollbar'>
+      <Box className='logoBox'>
+      <p className='logo'>
+      <Link className='logo' to='/home'> Blog Wagneriano </Link>
+      </p>
+      </Box>
+      {/*
+      <Box className='menuBoxAll'>
+      <Box className='menuBox'>
+      <Box mx={1} className='linkBox'>
+      <p className='link'>
+      <Link className='link' to='/home'> Home </Link>
+      </p>
+      </Box>
+      
+      <Box mx={1} className='linkBox'>
+      <p className='link'>
+      <Link className='link' to='/home'> Postagens </Link>
+      </p>
+      </Box>
+      <Box mx={1} className='linkBox'>
+      <p className='link'>
+                <Link className='link' to='/'> Temas </Link>
+              </p>
+            </Box>
+            <Box mx={1} className='linkBox'>
+            <p className='link'>
+            <Link className='link' to='/'> Cadastrar Tema </Link>
+            </p>
+            </Box>
+            </Box>
+            </Box>
+            <Box mx={1} className='linkBox'>
+            <p className='link'>
+            <Link className='link' to='/'> Sair </Link>
+            </p>
+            </Box>
+            </div>
+            </Toolbar>
+            </AppBar>
+          */
