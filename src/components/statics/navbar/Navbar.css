@@ -62,7 +62,7 @@ Bangers: regular 400  */
   text-shadow: 1px 1px 1px var(--dodDark);
 }
 .p_menu {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 @media screen and (max-width: 860px) {

@@ -44,7 +44,7 @@
   line-height: .5;
  }
  .botton_box {
-  margin-top: .5rem;
+  margin-top: 0;
   padding: .5rem 0 .5rem;
   background-color: var(--dodDark);
   width: 100%;
