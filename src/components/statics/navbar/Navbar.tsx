@@ -52,7 +52,7 @@ export default function Navbar() {
               </Box>
             </Link>
           </Box>
-          <Link className="menuLinks links" to='/home'>
+          <Link className="menuLinks links" to='/login'>
             <Box className="menuItem">
               <Typography className="p_menu">
                 Sair

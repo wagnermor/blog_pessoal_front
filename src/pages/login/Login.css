@@ -1,0 +1,38 @@
+:root {
+  --white: #FFF;
+  --dodDark: #005596;
+  --dodLight: dodgerblue;
+ }
+
+.input_form:placeholder-shown {
+  border-color: red;
+}
+#senha-label:placeholder-shown {
+  border-color: red;
+
+}
+#senha-label:placeholder {
+  color:var(--dodLight) !important;
+}
+.input_form label {
+  line-height: 0;
+}
+
+.input_form>div>input {
+  padding: .5rem !important;
+}
+.btn_logar {
+  background-color: var(--dodLight) !important;
+  color: var(--white) !important;
+}
+.btn_logar:hover {
+  background-color: var(--dodDark) !important;
+}
+.login_link {
+  color: var(--dodLight) !important;
+  transition: 3ms;
+}
+.login_link:hover {
+  color: var(--dodDark) !important;
+  scale: 1.1;
+}
