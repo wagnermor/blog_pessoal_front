@@ -49,7 +49,7 @@ export default function Login() {
                 Não tem uma conta?
               </Typography>
             </Box>
-            <Link to='/cadastrar'>
+            <Link to='/cadastro-usuario'>
               <Typography className='login_link' variant="subtitle1" gutterBottom align="center" style={{ fontWeight: 'bold' }}>
                 Cadastre-se
               </Typography>
