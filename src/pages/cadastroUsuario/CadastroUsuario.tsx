@@ -10,7 +10,7 @@ import './CadastroUsuario.css';
 
 export default function CadastroUsuario() {
   let navigate = useNavigate();
-  const [confirmarSenha,setConfirmarSenha] = useState<String>("")
+  const [confirmarSenha, setConfirmarSenha] = useState<String>("")
   const [user, setUser] = useState<User>({
     id: 0,
     nome: '',
@@ -42,17 +42,22 @@ export default function CadastroUsuario() {
   
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
-    if(confirmarSenha === user.senha){
-      cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-      alert('Usuario cadastrado com sucesso')
-    }else{
-      alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+    try{
+      if(confirmarSenha === user.senha){
+        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        alert('Usuario cadastrado com sucesso')
+      }else{
+        alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+      }
+    } catch(error){
+        alert('Falha no cadastro, verifique os campos')
     }
   }
   
   useEffect(() => {
-    if (userResult.id !== 0)
-      navigate("/login")
+    if (userResult.id !== 0){
+      navigate('/login')
+    }
     }, [userResult])
   
   return (
@@ -62,10 +67,58 @@ export default function CadastroUsuario() {
         <Box paddingX={10}>
           <form onSubmit={onSubmit}>
             <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='title'>Cadastrar</Typography>
-            <TextField className='input_form' id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth />
-            <TextField className='input_form' id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal'fullWidth />
-            <TextField className='input_form' id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
-            <TextField className='input_form' id='confirmarSenha' label='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
+            <TextField 
+              value={user.nome}
+              onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              className='input_form' 
+              id='nome' 
+              label='nome' 
+              variant='outlined' 
+              name='nome' 
+              margin='normal' 
+              fullWidth />
+            <TextField 
+              value={user.usuario}
+              onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              className='input_form' 
+              id='usuario' 
+              label='usuario' 
+              variant='outlined' 
+              name='usuario' 
+              margin='normal'
+              fullWidth />
+            <TextField 
+              value={user.foto}
+              onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              className='input_form' 
+              id='foto' 
+              label='foto' 
+              variant='outlined' 
+              name='foto' 
+              margin='normal'
+              fullWidth />
+            <TextField 
+              value={user.senha}
+              onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              className='input_form' 
+              id='senha' 
+              label='senha' 
+              variant='outlined' 
+              name='senha' 
+              margin='normal' 
+              type='password' 
+              fullWidth />
+            <TextField 
+              value={confirmarSenha}
+              onChange={(e:ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
+              className='input_form' 
+              id='confirmarSenha' 
+              label='confirmarSenha' 
+              variant='outlined' 
+              name='confirmarSenha' 
+              margin='normal' 
+              type='password' 
+              fullWidth />
             <Box className='btn_box' marginTop={2} textAlign='center'>
               <Link to='/login'>
                 <Button variant='contained' color='secondary' className='btnCancelar'>
