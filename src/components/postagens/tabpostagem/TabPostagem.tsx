@@ -4,7 +4,7 @@ import {Box} from '@mui/material';
 import { TabContext, TabPanel } from '@material-ui/lab';
 import './TabPostagem.css';
 
-import ListaPostagens from '../listapostagem/ListaPostagens';
+import ListaPostagens from '../listapostagem/ListaPostagem';
 
 export default function TabPostagem() {
 const [value, setValue] = useState('1')

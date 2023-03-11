@@ -10,7 +10,7 @@ import CadastroUsuario from './pages/cadastroUsuario/CadastroUsuario';
 import TesteGrid from './pages/teste/TesteGrid';
 import TesteFwlexBox from './pages/teste/TesteFlexBox';
 import ListaTema from './components/temas/listatema/ListaTema';
-import ListaPostagens from './components/postagens/listapostagem/ListaPostagens';
+import ListaPostagens from './components/postagens/listapostagem/ListaPostagem';
 
 export default function App() {
   return (
