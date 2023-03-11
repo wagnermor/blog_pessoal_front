@@ -30,14 +30,14 @@ export default function Navbar() {
                 </Typography>
               </Box>
             </Link>
-            <Link className="menuLinks links" to='/home'>
+            <Link className="menuLinks links" to='/posts'>
               <Box className="menuItem">
                 <Typography className="p_menu">
                   Postagens
                 </Typography>
               </Box>
             </Link>
-            <Link className="menuLinks links" to='/home'>
+            <Link className="menuLinks links" to='/temas'>
               <Box className="menuItem">
                 <Typography className="p_menu">
                   Temas
