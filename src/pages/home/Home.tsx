@@ -38,7 +38,7 @@ export default function Home() {
           <Button className='btn_ver_postagem'
             variant="outlined"
           >
-            <TabPostagem />
+            Ver Postagens
           </Button>
         </Box>
       </Grid>
