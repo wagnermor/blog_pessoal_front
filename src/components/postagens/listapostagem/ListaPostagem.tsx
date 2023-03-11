@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ListaPostagens.css";
+import "./ListaPostagem.css";
 import { busca } from "../../../services/Service";
 import useLocalStorage from "react-use-localstorage";
 import { useNavigate, Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { Box } from "@mui/material";
 import { Typography, Button, Card, CardActions, CardContent } from "@material-ui/core";
 import Postagem from "../../../models/Postagem";
 
-export default function ListaPostagens() {
+export default function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([]);
   const [token, setToken] = useLocalStorage("token");
   let navigate = useNavigate();
