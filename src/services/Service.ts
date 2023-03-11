@@ -8,7 +8,13 @@ export const cadastroUsuario = async(url: string, dados:Object, setDados:Functio
   const resposta = await api.post(url, dados)
   setDados(resposta.data)
 }
+
 export const login = async(url: string, dados:any, setDados:any) => {
   const resposta = await api.post(url, dados)
   setDados(resposta.data.token)
+}
+
+export const busca = async(url: string, setDados:any, header: any) => {
+  const resposta = await api.get(url, header)
+setDados(resposta.data)
 }
