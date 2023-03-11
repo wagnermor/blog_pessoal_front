@@ -9,6 +9,8 @@ import Login from './pages/login/Login';
 import CadastroUsuario from './pages/cadastroUsuario/CadastroUsuario';
 import TesteGrid from './pages/teste/TesteGrid';
 import TesteFwlexBox from './pages/teste/TesteFlexBox';
+import ListaTema from './components/temas/ListaTema';
+import ListaPostagens from './components/postagens/listapostagem/ListaPostagens';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro-usuario" element={<CadastroUsuario />} />
+            <Route path="/lista-tema" element={<ListaTema />} />
+            <Route path="/lista-postagens" element={<ListaPostagens />} />
             <Route path="/teste-grid" element={<TesteGrid />} />
             <Route path="/teste-flexbox" element={<TesteFwlexBox />} />
           </Routes>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ListaTemas.css";
+import "./ListaTema.css";
 import { busca } from "../../../services/Service";
 import useLocalStorage from "react-use-localstorage";
 import { useNavigate, Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { Box } from "@mui/material";
 import { Typography, Button, Card, CardActions, CardContent } from "@material-ui/core";
 import Tema from "../../../models/Tema";
 
-function ListaTemas() {
+export default function ListaTema() {
   const [temas, setTemas] = useState<Tema[]>([])
   const [token, setToken] = useLocalStorage('token');
   let navigate = useNavigate();
@@ -80,5 +80,3 @@ function ListaTemas() {
     </>
   );
 }
-
-export default ListaTemas;
