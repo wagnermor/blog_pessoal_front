@@ -1,5 +1,6 @@
 import { Typography, Grid, Button } from '@material-ui/core';
 import { Box } from '@mui/material';
+import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import './Home.css';
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
           <Button className='btn_ver_postagem'
             variant="outlined"
           >
-            Ver Postagens
+            <TabPostagem />
           </Button>
         </Box>
       </Grid>
@@ -49,7 +50,9 @@ export default function Home() {
           height="500px"
         />
       </Grid>
-      <Grid xs={12} style={{ backgroundColor: 'white' }}>Tab postagem </Grid>
+      <Grid xs={12} style={{ backgroundColor: 'white' }}>
+        <TabPostagem />
+      </Grid>
     </Grid>
   );
 }
