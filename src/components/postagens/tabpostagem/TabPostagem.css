@@ -1,8 +1,16 @@
+.tabBox {
+  background-color: var(--dodLight) !important;
+}
+
 .titulo{
   font-weight: bold;
   color: black;
 }
-.painel{
-  background-color: rgb(250, 255, 180);
 
+.btn_span {
+  opacity: 1 !important;
+  transition: .2s !important;
+}
+.btn_span:hover {
+  scale: 1.02;
 }

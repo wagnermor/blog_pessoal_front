@@ -1,3 +1,9 @@
+:root {
+  --white: #FFF;
+  --dodDark: #005596;
+  --dodLight: dodgerblue;
+ }
+
 .App {
   text-align: center;
 }

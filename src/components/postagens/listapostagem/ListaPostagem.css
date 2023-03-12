@@ -1,4 +1,25 @@
+:root {
+  --white: #FFF;
+  --dodDark: #005596;
+  --dodLight: dodgerblue;
+ }
 
 .text-decorator-none {
   text-decoration: none;
+}
+
+.card {
+  border: solid 1px var(--dodLight) !important;
+  transition: 500ms !important;
+}
+.card:hover {
+  border: solid 1px var(--dodDark) !important;
+  scale: 1.02;
+}
+
+.btn {
+ background-color: var(--dodLight) !important; 
+}
+.btn:hover {
+  background-color: var(--dodDark) !important;
 }

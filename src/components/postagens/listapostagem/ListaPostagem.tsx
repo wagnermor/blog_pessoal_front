@@ -21,7 +21,7 @@ export default function ListaPostagem() {
   }
 
   useEffect(() => {
-    if (token == "") {
+    if (token === "") {
       alert("Você precisa estar logado");
       navigate("/login");
     }
@@ -34,8 +34,8 @@ export default function ListaPostagem() {
   return (
     <>
       {posts.map((post) => (
-        <Box m={2}>
-          <Card variant="outlined">
+        <Box m={2} display='flex' justifyContent='start'>
+          <Card className='card' variant="outlined">
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
                 Postagens
@@ -59,7 +59,7 @@ export default function ListaPostagem() {
                   <Box mx={1}>
                     <Button
                       variant="contained"
-                      className="marginLeft"
+                      className="btn marginLeft"
                       size="small"
                       color="primary"
                     >
