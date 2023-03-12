@@ -1,15 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
 
 import './Navbar.css';
 
 export default function Navbar() {
+  const [token, setToken] = useLocalStorage('token');
+  let navigate = useNavigate();
+
+  function goLogout() {
+    setToken('')
+    alert("Usuário deslogado")
+    navigate('login')
+  }
+
   return (
     <AppBar className='appBar' position='static'>
       <Toolbar className='toolBar' variant='dense'>
-        {/* <div>blabla</div> */}
         <Box className='logoBox'>
           <Link className='logoLink links' to='/home'>
             <Typography className='p_logo'>
@@ -52,60 +61,13 @@ export default function Navbar() {
               </Box>
             </Link>
           </Box>
-          <Link className="menuLinks links" to='/login'>
-            <Box className="menuItem">
-              <Typography className="p_menu">
-                Sair
-              </Typography>
-            </Box>
-          </Link>
-            
-          {/* </Box> */}
+          <Box className="menuItem" onClick={ goLogout }>
+            <Typography className="p_menu menuLinks links">
+              Sair
+            </Typography>
+          </Box>
         </Box>
       </Toolbar>
     </AppBar>
   )
 }
-    /*<AppBar className='nav' position="static">
-      <Toolbar>
-      <div className='tollbar'>
-      <Box className='logoBox'>
-      <p className='logo'>
-      <Link className='logo' to='/home'> Blog Wagneriano </Link>
-      </p>
-      </Box>
-      {/*
-      <Box className='menuBoxAll'>
-      <Box className='menuBox'>
-      <Box mx={1} className='linkBox'>
-      <p className='link'>
-      <Link className='link' to='/home'> Home </Link>
-      </p>
-      </Box>
-      
-      <Box mx={1} className='linkBox'>
-      <p className='link'>
-      <Link className='link' to='/home'> Postagens </Link>
-      </p>
-      </Box>
-      <Box mx={1} className='linkBox'>
-      <p className='link'>
-                <Link className='link' to='/'> Temas </Link>
-              </p>
-            </Box>
-            <Box mx={1} className='linkBox'>
-            <p className='link'>
-            <Link className='link' to='/'> Cadastrar Tema </Link>
-            </p>
-            </Box>
-            </Box>
-            </Box>
-            <Box mx={1} className='linkBox'>
-            <p className='link'>
-            <Link className='link' to='/'> Sair </Link>
-            </p>
-            </Box>
-            </div>
-            </Toolbar>
-            </AppBar>
-          */
