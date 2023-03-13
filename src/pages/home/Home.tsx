@@ -22,7 +22,7 @@ export default function Home() {
       alert("Você precisa estar logado");
       navigate("/login")
     }
-  }, [token]);
+  }, [token])
 
   return (
     <Grid className='boxMain'
