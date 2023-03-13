@@ -19,7 +19,9 @@ export default function Navbar() {
 
   function goLogout() {
     dispatch(addToken(''));
-    toast.success("Usuário deslogado")
+    toast.success("Usuário deslogado", {
+      theme:'colored'
+    })
     navigate('login')
   }
   var navbarComponent;
