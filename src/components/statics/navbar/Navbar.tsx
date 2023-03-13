@@ -22,7 +22,7 @@ export default function Navbar() {
     toast.success("Usuário deslogado", {
       theme:'colored'
     })
-    navigate('login')
+    navigate('/login')
   }
   var navbarComponent;
 
