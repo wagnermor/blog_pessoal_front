@@ -1,14 +1,25 @@
 import React from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { TokenState } from '../../../store/tokens/TokensReducer';
+
 import { Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
-import './Footer.css';
-
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { GitHub } from '@material-ui/icons';
 
+import './Footer.css';
+
 export default function Footer() {
-  return (
-    <Box className="box">
+  const token = useSelector<TokenState, TokenState['token']>(
+    (state)=> state.token
+  );
+
+  var footerComponent;
+
+  if (token !== '') {
+    footerComponent = <Box 
+      className="box"
+    >
       <Box className="top_box">
         <Typography className="p_box">
           Visite nossas redes sociais:
@@ -43,5 +54,10 @@ export default function Footer() {
 
       </Box>
     </Box>
-  )
+  }
+  return (
+    <>
+      { footerComponent }
+    </>
+  );
 }

@@ -1,15 +1,21 @@
 import { useState, useEffect } from "react";
-import "./ListaPostagem.css";
-import { busca } from "../../../services/Service";
+import { useSelector } from "react-redux";
 import useLocalStorage from "react-use-localstorage";
 import { useNavigate, Link } from "react-router-dom";
 import { Box } from "@mui/material";
 import { Typography, Button, Card, CardActions, CardContent } from "@material-ui/core";
+
 import Postagem from "../../../models/Postagem";
+import { busca } from "../../../services/Service";
+import { TokenState } from "../../../store/tokens/TokensReducer";
+
+import "./ListaPostagem.css";
 
 export default function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([]);
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState['token']>(
+    (state)=>state.token
+  );
   let navigate = useNavigate();
 
   async function getPost() {
@@ -44,8 +50,8 @@ export default function ListaPostagem() {
                 {post.titulo}
               </Typography>
               <Typography variant="body2" component="p">
-                {post.texto}
-                {/* Postado em: {new Intl.DateTimeFormat('pt-BR',{dateStyle: 'short', timeStyle:'medium'}).format(new Date(post.date))} */}
+                {/* {post.texto} */}
+                Postado em: {new Intl.DateTimeFormat('pt-BR',{dateStyle: 'short', timeStyle:'medium'}).format(new Date(post.date))}
               </Typography>
               <Typography variant="body2" component="p">
                 {post.tema?.descricao}

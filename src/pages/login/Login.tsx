@@ -8,10 +8,14 @@ import { Box } from '@mui/material'
 
 import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/TokensReducer';
 
 export default function Login() {
   let navigate = useNavigate()
-  const [token, setToken] = useLocalStorage('token')
+  const token = useSelector<TokenState, TokenState['token']>(
+    (state)=>state.token
+  );
   const [userLogin, setUserLogin] = useState<UserLogin>(
     {
       id: 0,

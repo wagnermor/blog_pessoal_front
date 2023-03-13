@@ -1,4 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/Store';
 
 import './App.css';
 
@@ -14,23 +16,25 @@ import ListaPostagens from './components/postagens/listapostagem/ListaPostagem';
 
 export default function App() {
   return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <div style={{minHeight:'80vh'}}>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/cadastro-usuario" element={<CadastroUsuario />} />
-            <Route path="/temas" element={<ListaTema />} />
-            <Route path="/posts" element={<ListaPostagens />} />
-            <Route path="/teste-grid" element={<TesteGrid />} />
-            <Route path="/teste-flexbox" element={<TesteFwlexBox />} />
-          </Routes>
-        </div>
-        <Footer />
-      </Router>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Router>
+          <Navbar />
+          <div style={{minHeight:'80vh'}}>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/cadastro-usuario" element={<CadastroUsuario />} />
+              <Route path="/temas" element={<ListaTema />} />
+              <Route path="/posts" element={<ListaPostagens />} />
+              <Route path="/teste-grid" element={<TesteGrid />} />
+              <Route path="/teste-flexbox" element={<TesteFwlexBox />} />
+            </Routes>
+          </div>
+          <Footer />
+        </Router>
+      </div>
+    </Provider>
   );
 }

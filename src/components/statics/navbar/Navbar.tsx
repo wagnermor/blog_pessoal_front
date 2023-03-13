@@ -3,21 +3,28 @@ import { Link, useNavigate } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { Box } from '@mui/material';
+import { useSelector, useDispatch } from 'react-redux';
+import { TokenState } from '../../../store/tokens/TokensReducer';
+import { addToken } from '../../../store/tokens/Action';
 
 import './Navbar.css';
 
 export default function Navbar() {
-  const [token, setToken] = useLocalStorage('token');
+  const token = useSelector<TokenState, TokenState['token']>(
+    (state)=>state.token
+  );
+  const dispatch = useDispatch();
   let navigate = useNavigate();
 
   function goLogout() {
-    setToken('')
+    dispatch(addToken(''));
     alert("Usuário deslogado")
     navigate('login')
   }
+  var navbarComponent;
 
-  return (
-    <AppBar className='appBar' position='static'>
+  if(token !== '') {
+    navbarComponent = <AppBar className='appBar' position='static'>
       <Toolbar className='toolBar' variant='dense'>
         <Box className='logoBox'>
           <Link className='logoLink links' to='/home'>
@@ -69,5 +76,10 @@ export default function Navbar() {
         </Box>
       </Toolbar>
     </AppBar>
-  )
+  }
+  return (
+    <>
+      {navbarComponent}
+    </>
+  );
 }
