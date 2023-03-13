@@ -8,6 +8,7 @@ import { TokenState } from '../../../store/tokens/TokensReducer';
 import { addToken } from '../../../store/tokens/Action';
 
 import './Navbar.css';
+import { toast } from 'react-toastify';
 
 export default function Navbar() {
   const token = useSelector<TokenState, TokenState['token']>(
@@ -18,7 +19,7 @@ export default function Navbar() {
 
   function goLogout() {
     dispatch(addToken(''));
-    alert("Usuário deslogado")
+    toast.success("Usuário deslogado")
     navigate('login')
   }
   var navbarComponent;

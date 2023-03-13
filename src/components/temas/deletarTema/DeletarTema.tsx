@@ -15,6 +15,7 @@ import Tema from "../../../models/Tema";
 import { TokenState } from "../../../store/tokens/TokensReducer";
 
 import "./DeletarTema.css";
+import { toast } from "react-toastify";
 
 export default function DeletarTema() {
   let navigate = useNavigate();
@@ -25,8 +26,8 @@ export default function DeletarTema() {
   const [tema, setTema] = useState<Tema>();
 
   useEffect(() => {
-    if (token == "") {
-      alert("Você precisa estar logado");
+    if (token === "") {
+      toast.warn("Você precisa estar logado");
       navigate("/login");
     }
   }, [token]);
@@ -52,7 +53,7 @@ export default function DeletarTema() {
         Authorization: token,
       },
     });
-    alert("Tema deletado com sucesso");
+    toast.success("Tema deletado com sucesso");
   }
 
   function nao() {

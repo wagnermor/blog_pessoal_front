@@ -10,6 +10,7 @@ import { addToken } from '../../store/tokens/Action';
 import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 export default function Login() {
   let navigate = useNavigate()
@@ -38,9 +39,9 @@ export default function Login() {
     e.preventDefault()
     try{
       await login(`/usuarios/logar`, userLogin, setToken)
-      alert(`Usuário logado com sucesso!`)
+      toast.success(`Usuário logado com sucesso!`)
     }catch(error){
-      alert(`Dados do usuário inconsistentes. Erro ao logar!`)
+      toast.error(`Dados do usuário inconsistentes. Erro ao logar!`)
     }
   }
 

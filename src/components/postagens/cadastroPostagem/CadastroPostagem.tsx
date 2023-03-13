@@ -8,6 +8,7 @@ import Tema from '../../../models/Tema';
 import Postagem from '../../../models/Postagem';
 import { TokenState } from '../../../store/tokens/TokensReducer';
 import './CadastroPostagens.css';
+import { toast } from 'react-toastify';
 
 export default function CadastroPostagens() {
   let navigate = useNavigate();
@@ -20,7 +21,7 @@ export default function CadastroPostagens() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado")
+      toast.warn("Você precisa estar logado")
       navigate("/login")
     }
   }, [token])
@@ -84,14 +85,14 @@ export default function CadastroPostagens() {
           'Authorization': token
         }
       })
-      alert('Postagem atualizada com sucesso');
+      toast.success('Postagem atualizada com sucesso');
     } else {
         post(`/postagens`, postagem, setPostagem, {
           headers: {
             'Authorization': token
           }
         })
-        alert('Postagem cadastrada com sucesso');
+        toast.success('Postagem cadastrada com sucesso');
     }
     back()
 

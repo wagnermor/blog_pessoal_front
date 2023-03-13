@@ -14,6 +14,7 @@ import "./DeletarPostagem.css";
 import Postagem from "../../../models/Postagem";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/TokensReducer";
+import { toast } from "react-toastify";
 
 export default function DeletarPostagens() {
   let navigate = useNavigate();
@@ -25,7 +26,7 @@ export default function DeletarPostagens() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      toast.warn("Você precisa estar logado");
       navigate("/login");
     }
   }, [token]);
@@ -51,7 +52,7 @@ export default function DeletarPostagens() {
         Authorization: token,
       },
     });
-    alert("Postagem deletada com sucesso");
+    toast.success("Postagem deletada com sucesso");
   }
 
   function nao() {

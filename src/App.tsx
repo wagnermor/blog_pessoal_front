@@ -13,10 +13,13 @@ import TesteGrid from './pages/teste/TesteGrid';
 import TesteFwlexBox from './pages/teste/TesteFlexBox';
 import ListaTema from './components/temas/listatema/ListaTema';
 import ListaPostagens from './components/postagens/listapostagem/ListaPostagem';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 export default function App() {
   return (
     <Provider store={store}>
+      <ToastContainer />
       <div className="App">
         <Router>
           <Navbar />

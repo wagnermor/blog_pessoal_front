@@ -10,6 +10,7 @@ import { busca } from "../../../services/Service";
 import { TokenState } from "../../../store/tokens/TokensReducer";
 
 import "./ListaPostagem.css";
+import { toast } from "react-toastify";
 
 export default function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([]);
@@ -28,7 +29,7 @@ export default function ListaPostagem() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      toast.warn("Você precisa estar logado");
       navigate("/login");
     }
   }, [token]);

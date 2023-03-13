@@ -7,6 +7,7 @@ import { cadastroUsuario } from '../../services/Service';
 import useLocalStorage from 'react-use-localstorage';
 import Userlogin from '../../models/UserLogin';
 import './CadastroUsuario.css';
+import { toast } from 'react-toastify';
 
 export default function CadastroUsuario() {
   let navigate = useNavigate();
@@ -45,12 +46,12 @@ export default function CadastroUsuario() {
     try{
       if(confirmarSenha === user.senha){
         cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-        alert('Usuario cadastrado com sucesso')
+        toast.success('Usuario cadastrado com sucesso')
       }else{
-        alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+        toast.error('Dados inconsistentes. Favor verificar as informações de cadastro.')
       }
     } catch(error){
-        alert('Falha no cadastro, verifique os campos')
+        toast.error('Falha no cadastro, verifique os campos')
     }
   }
   

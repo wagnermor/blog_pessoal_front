@@ -8,6 +8,7 @@ import { Typography, Button, Card, CardActions, CardContent } from "@material-ui
 import Tema from "../../../models/Tema";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/TokensReducer";
+import { toast } from "react-toastify";
 
 export default function ListaTema() {
   const [temas, setTemas] = useState<Tema[]>([])
@@ -18,7 +19,7 @@ export default function ListaTema() {
   
   useEffect(()=>{
     if(token === ''){
-      alert("Você precisa estar logado")
+      toast.warn("Você precisa estar logado")
       navigate("/login")
     }
   }, [token])

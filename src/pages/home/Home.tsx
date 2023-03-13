@@ -10,6 +10,7 @@ import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostage
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 
 import './Home.css';
+import { toast } from "react-toastify";
 
 export default function Home() {
   let navigate = useNavigate();
@@ -19,7 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     if(token === "") {
-      alert("Você precisa estar logado");
+      toast.warn("Você precisa estar logado");
       navigate("/login")
     }
   }, [token])
