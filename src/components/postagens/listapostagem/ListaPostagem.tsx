@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./ListaPostagem.css";
 import { busca } from "../../../services/Service";
 import useLocalStorage from "react-use-localstorage";
@@ -32,7 +32,7 @@ export default function ListaPostagem() {
   }, [posts.length]);
 
   return (
-    <>
+    <>  
       {posts.map((post) => (
         <Box m={2} display='flex' justifyContent='start'>
           <Card className='card' variant="outlined">
@@ -45,6 +45,7 @@ export default function ListaPostagem() {
               </Typography>
               <Typography variant="body2" component="p">
                 {post.texto}
+                {/* Postado em: {new Intl.DateTimeFormat('pt-BR',{dateStyle: 'short', timeStyle:'medium'}).format(new Date(post.date))} */}
               </Typography>
               <Typography variant="body2" component="p">
                 {post.tema?.descricao}

@@ -23,7 +23,7 @@ function handleChange(event: React.ChangeEvent<{}>, newValue: string){
           </Tabs>
         </AppBar>
         <TabPanel value="1" >
-          <Box display="flex" flexWrap="wrap" justifyContent="center">
+          <Box display="flex" flexWrap="wrap" justifyContent="start">
             <ListaPostagens />
           </Box>
         </TabPanel>
