@@ -35,7 +35,7 @@ export default function CadastroPostagens() {
     id: 0,
     titulo: '',
     texto: '',
-    date: '',
+    data: '',
     tema: null
   })
 

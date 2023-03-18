@@ -39,7 +39,7 @@ export default function ListaPostagem() {
   }, [posts.length]);
 
   return (
-    <>  
+    <Box display='flex' flexWrap={'wrap'}>
       {posts.map((post) => (
         <Box m={2} display='flex' justifyContent='start'>
           <Card className='card' variant="outlined">
@@ -51,8 +51,14 @@ export default function ListaPostagem() {
                 {post.titulo}
               </Typography>
               <Typography variant="body2" component="p">
-                {/* {post.texto} */}
-                Postado em: {new Intl.DateTimeFormat('pt-BR',{dateStyle: 'short', timeStyle:'medium'}).format(new Date(post.date))}
+                {post.texto}
+              </Typography>
+              <Typography variant="body2" component="p">
+                Postado em:{' '}
+                {new Intl.DateTimeFormat(undefined, {
+                  dateStyle: 'full',
+                  timeStyle:'medium'
+                }).format(new Date(post.data))}
               </Typography>
               <Typography variant="body2" component="p">
                 {post.tema?.descricao}
@@ -89,7 +95,7 @@ export default function ListaPostagem() {
             </CardActions>
           </Card>
         </Box>
-      ))}
-    </>
+    ))}
+    </ Box>
   );
 }
