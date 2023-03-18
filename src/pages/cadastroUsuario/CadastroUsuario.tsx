@@ -4,8 +4,6 @@ import {Box} from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import User from '../../models/User';
 import { cadastro } from '../../services/Service';
-import useLocalStorage from 'react-use-localstorage';
-import Userlogin from '../../models/UserLogin';
 import './CadastroUsuario.css';
 import { toast } from 'react-toastify';
 

@@ -8,7 +8,6 @@ import {
 } from "@material-ui/core";
 import { Box } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
-// import useLocalStorage from "react-use-localstorage";
 import { buscaId, deleteId } from "../../../services/Service";
 import "./DeletarPostagem.css";
 import Postagem from "../../../models/Postagem";
