@@ -1,32 +1,41 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Button, Grid, Typography, TextField } from '@material-ui/core'
 
-// import useLocalStorage from 'react-use-localstorage';
-import UserLogin from '../../models/UserLogin';
+import UsuarioLogin from '../../models/UserLogin';
 import { login } from '../../services/Service';
 import { Box } from '@mui/material'
-import { addToken } from '../../store/tokens/Action';
+import { addId,addToken } from '../../store/tokens/Action';
 
-import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
+import './Login.css';
+
 export default function Login() {
   let navigate = useNavigate()
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState('')
   const dispatch = useDispatch()
 
-  const [userLogin, setUserLogin] = useState<UserLogin>(
-    {
-      id: 0,
-      nome: '',
-      usuario:'',
-      senha:'',
-      foto:'',
-      token:''
-    }
-  )
+  const [isLoading, setIsLoading] = useState(false)
+
+  const [userLogin, setUserLogin] = useState<UsuarioLogin>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    senha: '',
+    foto: '',
+    token: ''
+  })
+
+  const [respUserLogin, setRespUserLogin] = useState<UsuarioLogin>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    senha: '',
+    foto: '',
+    token: ''
+  })
 
   function updateModel(e: ChangeEvent<HTMLInputElement>) {
     setUserLogin({
@@ -35,21 +44,53 @@ export default function Login() {
     })
   }
 
+  
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
     try{
-      await login(`/usuarios/logar`, userLogin, setToken)
-      toast.success(`Usuário logado com sucesso!`)
-    }catch(error){
-      toast.error(`Dados do usuário inconsistentes. Erro ao logar!`)
+      setIsLoading(true)
+      await login(`/usuarios/logar`, userLogin, setRespUserLogin)
+      toast.success('Usuário logado com sucesso', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+    } catch(error) {
+      setIsLoading(false)
+      toast.warning('Usuário e/ou senha inválidos',{
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        })
     }
   }
 
   useEffect(() => {
-    if(token !== '')
+    if(token !== ''){
+      dispatch(addToken(token))
       navigate('/home')
+    }
   }, [token])
-  
+
+  useEffect(() => {
+    if(respUserLogin.token !== '') {
+      dispatch(addToken(respUserLogin.token))
+      dispatch(addId(respUserLogin.id.toString()))
+      navigate('/home')
+    }
+  }, [respUserLogin.token])
+
+
   return (
     <Grid container direction="row" justifyContent="center" alignItems="center">
       <Grid alignItems="center" xs={6}>
@@ -80,7 +121,7 @@ export default function Login() {
               fullWidth />
             <Box marginTop={2} textAlign="center">
               <Button className='btn_logar' type="submit" variant="contained">
-                Logar
+                { isLoading ? 'Aguarde' : 'Logar' }
               </Button>
             </Box>
           </form>
