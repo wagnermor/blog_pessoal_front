@@ -3,7 +3,7 @@ import { Grid,Typography, Button, TextField } from '@material-ui/core';
 import {Box} from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import User from '../../models/User';
-import { cadastroUsuario } from '../../services/Service';
+import { cadastro } from '../../services/Service';
 import useLocalStorage from 'react-use-localstorage';
 import Userlogin from '../../models/UserLogin';
 import './CadastroUsuario.css';
@@ -27,7 +27,6 @@ export default function CadastroUsuario() {
     senha: '',
     foto: ''
   })
-
   
   function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>){
     setConfirmarSenha(e.target.value)
@@ -45,7 +44,7 @@ export default function CadastroUsuario() {
     e.preventDefault()
     try{
       if(confirmarSenha === user.senha){
-        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        cadastro(`/usuarios/cadastrar`, user, setUserResult)
         toast.success('Usuario cadastrado com sucesso')
       }else{
         toast.error('Dados inconsistentes. Favor verificar as informações de cadastro.')

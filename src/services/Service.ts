@@ -1,39 +1,43 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: 'https://blogpessoal-s8w8.onrender.com'
+  baseURL: 'https://blogdothiagofaccipieri.onrender.com'
 })
 
-export const cadastroUsuario = async(url: string, dados:Object, setDados:Function) => {
+export const login = async(url: any, dados: any, setDados: any) => {
   const resposta = await api.post(url, dados)
   setDados(resposta.data)
 }
 
-export const login = async(url: string, dados:any, setDados:any) => {
+// Tipagem de dados da função assincrona:
+// url: string => a url, sempre será um texto, portanto a anotação de string nela
+// dados: Object => os dados que enviamos para o nosso backend, sempre irão no padrão JSON, que para o typescript, é um Objeto
+// setDados: Function => sempre iremos executar uma função para atualizar os dados, por isso, a tipagem de Função
+export const cadastro = async(url: string, dados: Object, setDados: Function) => {
   const resposta = await api.post(url, dados)
-  setDados(resposta.data.token)
-}
-
-export const busca = async(url: string, setDados:any, header: any) => {
-  const resposta = await api.get(url, header)
   setDados(resposta.data)
 }
 
-export const buscaId = async(url: string, setDados: Function, headers: Object) => {
+export const busca = async(url: any, setDados: any, headers: any) => {
   const resposta = await api.get(url, headers)
   setDados(resposta.data)
 }
 
-export const post = async(url: string, dados: Object, setDados: Function, headers: Object) => {
+export const buscaId = async(url: any, setDados: any, headers: any) => {
+  const resposta = await api.get(url, headers)
+  setDados(resposta.data)
+}
+
+export const post = async(url: any, dados: any, setDados: any, headers: any) => {
   const resposta = await api.post(url, dados, headers)
   setDados(resposta.data)
 }
 
-export const put = async(url: string, dados: object, setDados: Function, headers: Object) => {
+export const put = async(url: any, dados: any, setDados: any, headers: any) => {
   const resposta = await api.put(url, dados, headers)
   setDados(resposta.data)
 }
 
-export const deleteId = async(url: string, headers: Object) => {
+export const deleteId = async(url: any, headers: any) => {
   await api.delete(url, headers)
 }
